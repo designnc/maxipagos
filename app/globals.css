@@ -1,10 +1,97 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* Primary fruit-salad Color Palette */
+  --color-primary: var(--color-primary-700);
+  --color-primary-50: #effef4;
+  --color-primary-100: #d9ffe6;
+  --color-primary-200: #b5fdce;
+  --color-primary-300: #7cf9a9;
+  --color-primary-400: #3cec7c;
+  --color-primary-500: #12d55a;
+  --color-primary-600: #09b046;
+  --color-primary-700: #0c9a41;
+  --color-primary-800: #0e6d32;
+  --color-primary-900: #0e592c;
+  --color-primary-950: #013215;
+
+  /* Color Secondary (Tulip Tree) */
+  --color-secondary: var(--color-secondary-300);
+  --color-secondary-50: #fef9ec;
+  --color-secondary-100: #fcedc9;
+  --color-secondary-200: #fada8d;
+  --color-secondary-300: #f6bb41;
+  --color-secondary-400: #f5a92a;
+  --color-secondary-500: #ee8812;
+  --color-secondary-600: #d3650c;
+  --color-secondary-700: #af450e;
+  --color-secondary-800: #8e3612;
+  --color-secondary-900: #752d12;
+  --color-secondary-950: #431505;
+
+  /* Accent Cyan/Aqua Color Palette */
+  --color-accent: var(--color-accent-500);
+  --color-accent-50: #edfffe;
+  --color-accent-100: #c0feff;
+  --color-accent-200: #81fbff;
+  --color-accent-300: #3af8ff;
+  --color-accent-400: #00ffff;
+  --color-accent-500: #00e1e2;
+  --color-accent-600: #00b2b7;
+  --color-accent-700: #008c91;
+  --color-accent-800: #006c72;
+  --color-accent-900: #04585d;
+  --color-accent-950: #00343a;
+
+
+  --animate-side-to-side: side-to-side 3s ease-in-out infinite;
+
+  @keyframes side-to-side {
+
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(10px);
+    }
+  }
+
+}
+
+@layer utilities {
+  .animate-side-to-side {
+    animation: side-to-side 3s ease-in-out infinite;
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+
 }
 
 @media (prefers-color-scheme: dark) {
