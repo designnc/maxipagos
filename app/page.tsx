@@ -6,6 +6,8 @@ import Pricing from "./sections/Pricing";
 import Footer from "./sections/Footer";
 import Header from "./components/Header";
 import Background from "./components/Background";
+import Numbers from "./sections/Numbers";
+import BenefitsSection from "./sections/Benefits";
 
 export default function Home() {
   return (
@@ -13,6 +15,8 @@ export default function Home() {
       <Background />
       <Header />
       <Hero />
+      <Numbers />
+      <BenefitsSection />
       <Features />
       {/* <Testimonials /> */}
       <HowItWorks />

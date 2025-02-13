@@ -72,7 +72,7 @@ const Header: React.FC = () => {
                       className={`rounded-full px-3 lg:px-4 py-2 text-[12px] xl:text-sm uppercase font-medium transition-all ${
                         isActive
                           ? "bg-foreground/30 text-primary-300"
-                          : "text-background hover:text-secondary"
+                          : "text-white/90 hover:text-secondary"
                       }`}
                     >
                       {link.label}

@@ -1,6 +1,13 @@
 import React from "react";
 import Label from "../components/Label";
-import { FaRegCreditCard, FaUser, FaTag, FaFileAlt, FaLink } from "react-icons/fa";
+import {
+  FaRegCreditCard,
+  FaUser,
+  FaTag,
+  FaFileAlt,
+  FaLink,
+  FaQrcode,
+} from "react-icons/fa";
 
 const Features = () => {
   const features = [
@@ -26,9 +33,16 @@ const Features = () => {
     },
     {
       title: "Links de pago",
-      description: "Crea links seguros para transacciones rápidas y confiables.",
+      description:
+        "Crea links seguros para transacciones rápidas y confiables.",
       icon: <FaLink />,
     },
+    {
+      title: "Pago QR",
+      description:
+        "Crea links seguros para transacciones rápidas y confiables.",
+      icon: <FaQrcode />,
+    }
   ];
 
   return (
@@ -39,7 +53,7 @@ const Features = () => {
           <h2 className="text-5xl font-bold mt-4 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Características principales
           </h2>
-          <p className="mt-2 text-center text-gray-700">
+          <p className="mt-2 text-center text-foreground/80 text-xl">
             Potencia tu negocio con funciones eficientes y seguras.
           </p>
         </div>
@@ -47,7 +61,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="relative bg-white p-6 py-16 rounded-md overflow-hidden text-primary hover:shadow-lg transform transition duration-300 hover:-translate-y-1 shadow-md inset-shadow-sm inset-shadow-white/20 ring ring-primary/20 inset-ring inset-ring-white/15"
+              className="relative bg-white dark:bg-zinc-900 p-6 py-16 rounded-2xl overflow-hidden text-primary hover:shadow-lg transform transition duration-300 hover:-translate-y-1  inset-shadow-sm inset-shadow-white/20 ring ring-primary/20 inset-ring inset-ring-white/15"
             >
               {/* Fondo decorativo similar al componente Background */}
               <div className="absolute inset-0 -z-10">
@@ -63,7 +77,7 @@ const Features = () => {
                 <h3 className="text-xl font-bold mb-2 text-center relative z-10">
                   {feature.title}
                 </h3>
-                <p className="text-center relative z-10 text-black/80">
+                <p className="text-center relative z-10 text-foreground/80">
                   {feature.description}
                 </p>
               </div>
