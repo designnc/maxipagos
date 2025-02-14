@@ -128,7 +128,7 @@ export const BentoCard = ({
           <Button
             variant="primary"
             size="medium"
-            endIcon={<FaArrowRight className="ml-1" />}
+            endIcon={<FaArrowRight />}
             className="block w-fit"
           >
             <a href={href}>{cta}</a>

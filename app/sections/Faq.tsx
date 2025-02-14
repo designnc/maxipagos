@@ -1,5 +1,7 @@
-"use client"
-import { useState } from "react";
+"use client";
+import { useState, useEffect } from "react";
+import Label from "../components/Label";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface FaqItem {
   category: string;
@@ -7,7 +9,6 @@ interface FaqItem {
   answer: string;
 }
 
-// Aquí defines tus preguntas frecuentes, incluyendo la categoría
 const faqs: FaqItem[] = [
   // General
   {
@@ -83,8 +84,24 @@ const faqs: FaqItem[] = [
   },
 ];
 
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    setIsDesktop(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
+  return isDesktop;
+}
+
 export default function FaqPage() {
-  // Agrupamos las preguntas por categoría
+  const isDesktop = useIsDesktop();
+
   const groupedFaqs = faqs.reduce((acc, item) => {
     if (!acc[item.category]) {
       acc[item.category] = [];
@@ -94,48 +111,83 @@ export default function FaqPage() {
   }, {} as Record<string, FaqItem[]>);
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Preguntas Frecuentes</h1>
+    <section id="faqs" className="py-16 px-8">
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <Label text="FAQS" />
+        <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-primary">
+          Preguntas Frecuentes
+        </h1>
 
-      {Object.entries(groupedFaqs).map(([category, items]) => (
-        <div key={category} className="mb-8">
-          {/* Título de la categoría */}
-          <h2 className="text-2xl font-semibold mb-4">{category}</h2>
+        {Object.entries(groupedFaqs).map(([category, items]) => (
+          <div key={category} className="mb-8">
+            <h2 className="text-xl lg:text-2xl font-semibold mb-4 text-foreground/60">
+              {category}
+            </h2>
 
-          {/* Lista de preguntas de la categoría */}
-          <div className="space-y-4">
-            {items.map((faq, index) => (
-              <AccordionItem key={index} faq={faq} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {items.map((faq, index) => (
+                <AccordionItem key={index} faq={faq} isDesktop={isDesktop} />
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
-// Componente individual para cada pregunta y respuesta
-function AccordionItem({ faq }: { faq: FaqItem }) {
-  const [isOpen, setIsOpen] = useState(false);
+function AccordionItem({
+  faq,
+  isDesktop,
+}: {
+  faq: FaqItem;
+  isDesktop: boolean;
+}) {
+  const [isOpen, setIsOpen] = useState(isDesktop);
+
+  useEffect(() => {
+    setIsOpen(isDesktop);
+  }, [isDesktop]);
 
   const toggleAccordion = () => {
-    setIsOpen(!isOpen);
+    // Solo permite el toggle en móvil
+    if (!isDesktop) {
+      setIsOpen(!isOpen);
+    }
   };
 
   return (
-    <div className="border-b border-gray-200 pb-2">
+    <div className={`pb-2 ${!isDesktop ? "border-b border-foreground/10" : ""}`}>
       <button
         onClick={toggleAccordion}
-        className="flex justify-between w-full py-2 text-left"
+        className="flex justify-between w-full py-2 text-left transition-colors duration-200 hover:text-primary"
       >
-        <span className="font-medium text-gray-800">{faq.question}</span>
-        <span className="ml-2 text-gray-500">{isOpen ? "−" : "+"}</span>
+        <span className="text-lg font-medium text-foreground">{faq.question}</span>
+        {/* Mostrar icono solo en móvil */}
+        {!isDesktop && (
+          <motion.span
+            initial={false}
+            animate={{ opacity: [0.8, 1] }}
+            transition={{ duration: 0.2 }}
+            className="ml-2 text-xl"
+          >
+            {isOpen ? "−" : "+"}
+          </motion.span>
+        )}
       </button>
-      {isOpen && (
-        <div className="mt-2 text-gray-600">
-          {faq.answer}
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="mt-2 text-foreground/70 pb-2">{faq.answer}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
