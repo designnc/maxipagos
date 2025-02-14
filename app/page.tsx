@@ -8,6 +8,8 @@ import Header from "./components/Header";
 import Background from "./components/Background";
 import Numbers from "./sections/Numbers";
 import BenefitsSection from "./sections/Benefits";
+import Contact from "./sections/Contact";
+import FaqPage from "./sections/Faq";
 
 export default function Home() {
   return (
@@ -21,6 +23,8 @@ export default function Home() {
       {/* <Testimonials /> */}
       <HowItWorks />
       <Pricing />
+      <Contact />
+      <FaqPage />
       <Footer />
     </>
   );
