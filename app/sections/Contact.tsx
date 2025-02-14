@@ -34,7 +34,7 @@ const Contact = () => {
   return (
     <section id="contacto" className="w-full flex flex-col items-center py-16">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 px-8 lg:px-0">
           <h2 className="text-6xl font-bold text-primary">Contacto</h2>
           <p className="mt-2 text-foreground/80 text-xl">
             ¿Tienes dudas o necesitas ayuda o quieres registrarte? ¡Contáctanos

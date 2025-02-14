@@ -122,7 +122,7 @@ const Header: React.FC = () => {
 
       {/* Menú móvil en pantalla completa */}
       {navigationOpen && (
-        <div className="fixed top-0 w-full h-screen z-40 flex flex-col items-center justify-center gap-6 bg-zinc-900">
+        <div className="fixed top-0 w-full h-screen z-40 flex flex-col items-center justify-center gap-6 bg-primary">
           {/* Botón cerrar */}
           <button
             title="cerrar menú"
@@ -155,7 +155,7 @@ const Header: React.FC = () => {
                     href={link.href}
                     className={`text-lg font-medium transition-all ${
                       isActive
-                        ? "bg-zinc-700 text-accent px-4 py-2 rounded-full"
+                        ? "bg-secondary text-primary-900 px-4 py-2 rounded-full"
                         : "text-white hover:text-secondary"
                     }`}
                     onClick={() => setNavigationOpen(false)}
