@@ -35,14 +35,16 @@ const Contact = () => {
     <section id="contacto" className="w-full flex flex-col items-center py-16">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8 px-8 lg:px-0">
-          <h2 className="text-6xl font-bold text-primary">Contacto</h2>
+          <h2 className="text-5xl font-bold mt-4 pb-2 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Contacto
+          </h2>
           <p className="mt-2 text-foreground/80 text-xl">
             ¿Tienes dudas o necesitas ayuda o quieres registrarte? ¡Contáctanos
             y con gusto te asistiremos!
           </p>
         </div>
 
-        <div className="max-w-6xl w-full mx-auto flex flex-col md:flex-row bg-primary rounded-3xl shadow-lg overflow-hidden">
+        <div className="w-full mx-auto flex flex-col md:flex-row bg-primary rounded-3xl shadow-lg overflow-hidden">
           <div className="w-full md:w-1/2 p-8 text-white">
             <h2 className="text-3xl font-semibold mb-2">Contáctanos</h2>
             <p className="mb-6 text-base ">

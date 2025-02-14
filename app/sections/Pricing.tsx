@@ -54,9 +54,9 @@ export default function Pricing() {
 
   return (
     <section id="planes" className="w-full py-16 px-4 md:px-8 text-center animate-fadeIn">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Título y subtítulo */}
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2 transition-all duration-500">
+        <h2 className="text-5xl font-bold mt-4 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           Planes para ti
         </h2>
         <p className="text-lg text-foreground/70 mb-8 transition-all duration-500">

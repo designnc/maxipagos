@@ -102,21 +102,26 @@ function useIsDesktop() {
 export default function FaqPage() {
   const isDesktop = useIsDesktop();
 
-  const groupedFaqs = faqs.reduce((acc, item) => {
-    if (!acc[item.category]) {
-      acc[item.category] = [];
-    }
-    acc[item.category].push(item);
-    return acc;
-  }, {} as Record<string, FaqItem[]>);
+  const groupedFaqs = faqs.reduce(
+    (acc, item) => {
+      if (!acc[item.category]) {
+        acc[item.category] = [];
+      }
+      acc[item.category].push(item);
+      return acc;
+    },
+    {} as Record<string, FaqItem[]>
+  );
 
   return (
     <section id="faqs" className="py-16 px-8">
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <Label text="FAQS" />
-        <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-primary">
-          Preguntas Frecuentes
-        </h1>
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="py-8 flex flex-col items-center justify-center">
+          <Label text="FAQS" />
+          <h1 className="text-5xl font-bold mt-4 pb-2 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Preguntas Frecuentes
+          </h1>
+        </div>
 
         {Object.entries(groupedFaqs).map(([category, items]) => (
           <div key={category} className="mb-8">
@@ -157,12 +162,16 @@ function AccordionItem({
   };
 
   return (
-    <div className={`pb-2 ${!isDesktop ? "border-b border-foreground/10" : ""}`}>
+    <div
+      className={`pb-2 ${!isDesktop ? "border-b border-foreground/10" : ""}`}
+    >
       <button
         onClick={toggleAccordion}
         className="flex justify-between w-full py-2 text-left transition-colors duration-200 hover:text-primary"
       >
-        <span className="text-lg font-medium text-foreground">{faq.question}</span>
+        <span className="text-lg font-medium text-foreground">
+          {faq.question}
+        </span>
         {/* Mostrar icono solo en móvil */}
         {!isDesktop && (
           <motion.span
