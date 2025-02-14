@@ -54,15 +54,18 @@ const features = [
 
 const BenefitsSection = () => {
   return (
-    <section className="py-16 px-8">
+    <section id="caracteristicas" className="py-16 px-8">
       <div className="max-w-7xl mx-auto">
         <div className="py-8 flex flex-col items-center justify-center">
           <Label text="Beneficios" />
           <h2 className="text-5xl font-bold mt-4 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Beneficios
           </h2>
-          <p className="mt-2 text-center text-primary-700 text-2xl">
-            Cobros | Pagos | Gestión.
+          <p className="mt-8 text-center text-primary-700 text-3xl flex flex-wrap justify-center gap-8 gap-y-2" >
+            <span className="flex items-center justify-center"><img title="icono cobros" src="icons/icon-cobros.svg" className="h-8 mr-2"/> Cobros </span>
+            <span className="flex items-center justify-center"><img title="icono pagos" src="icons/icon-pagos.svg" className="h-8 mr-2"/> Pagos </span>
+            <span className="flex items-center justify-center"><img title="icono gestión" src="icons/icon-gestion.svg" className="h-8 mr-2"/> Gestión </span>
+
           </p>
         </div>
         <BentoGrid>

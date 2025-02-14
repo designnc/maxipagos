@@ -11,9 +11,9 @@ import { RiLoginBoxFill } from "react-icons/ri";
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
-  { href: "#servicios", label: "Servicios" },
-  { href: "#pos", label: "POS" },
-  { href: "#beneficios", label: "Beneficios" },
+  { href: "#caracteristicas", label: "Características" },
+  { href: "#planes", label: "Planes" },
+  { href: "#contacto", label: "Contacto" },
 ];
 
 const Header: React.FC = () => {

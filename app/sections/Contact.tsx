@@ -32,11 +32,11 @@ const Contact = () => {
   };
 
   return (
-    <section className="w-full flex flex-col items-center py-16">
+    <section id="contacto" className="w-full flex flex-col items-center py-16">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8">
           <h2 className="text-6xl font-bold text-primary">Contacto</h2>
-          <p className="mt-2 text-gray-700">
+          <p className="mt-2 text-foreground/80 text-xl">
             ¿Tienes dudas o necesitas ayuda o quieres registrarte? ¡Contáctanos
             y con gusto te asistiremos!
           </p>
@@ -45,7 +45,7 @@ const Contact = () => {
         <div className="max-w-6xl w-full mx-auto flex flex-col md:flex-row bg-primary rounded-3xl shadow-lg overflow-hidden">
           <div className="w-full md:w-1/2 p-8 text-white">
             <h2 className="text-3xl font-semibold mb-2">Contáctanos</h2>
-            <p className="mb-6 text-base">
+            <p className="mb-6 text-base ">
               En Maxipagos estamos listos para ayudarte. Déjanos tu mensaje y
               nos pondremos en contacto contigo lo antes posible.
             </p>
