@@ -3,17 +3,17 @@
 import Label from "../components/Label";
 import { BentoCard, BentoGrid } from "../components/BentoGrid";
 
-
 const features = [
   {
     name: "Automatización Inteligente de Cobros",
-    description: "Olvídate de los recordatorios manuales. Maxipagos programa y automatiza los cobros por correo electrónico, asegurando que recibas tus pagos a tiempo sin esfuerzo adicional.",
+    description:
+      "Olvídate de los recordatorios manuales. Maxipagos programa y automatiza los cobros por correo electrónico, asegurando que recibas tus pagos a tiempo sin esfuerzo adicional.",
     href: "/",
     cta: "Empezar",
     background: (
-      <img 
+      <img
         className="w-full h-full object-contain" // Cambiado de object-cover a object-contain
-        src="benefits/benefits-1.png" 
+        src="benefits/benefits-1.png"
         alt="Automatización Inteligente"
       />
     ),
@@ -22,12 +22,13 @@ const features = [
   },
   {
     name: "Pagos Rápidos y Seguros",
-    description: "Ofrece a tus clientes múltiples opciones de pago, desde tarjetas hasta links de pago personalizados. Transacciones seguras y sin complicaciones en pocos clics.",
+    description:
+      "Ofrece a tus clientes múltiples opciones de pago, desde tarjetas hasta links de pago personalizados. Transacciones seguras y sin complicaciones en pocos clics.",
     href: "/",
     background: (
-      <img 
+      <img
         className="w-full h-full object-contain" // Cambiado de object-cover a object-contain
-        src="benefits/benefits-2.png" 
+        src="benefits/benefits-2.png"
         alt="Pagos Rápidos"
       />
     ),
@@ -47,9 +48,7 @@ const features = [
     ),
     className: "col-span-12 md:col-span-6",
     imagePosition: "bottom" as const,
-  }
-  
-
+  },
 ];
 
 const BenefitsSection = () => {
@@ -61,11 +60,31 @@ const BenefitsSection = () => {
           <h2 className="text-5xl font-bold mt-4 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Beneficios
           </h2>
-          <p className="mt-8 text-center text-primary-700 text-3xl flex flex-wrap justify-center gap-8 gap-y-2" >
-            <span className="flex items-center justify-center"><img title="icono cobros" src="icons/icon-cobros.svg" className="h-8 mr-2"/> Cobros </span>
-            <span className="flex items-center justify-center"><img title="icono pagos" src="icons/icon-pagos.svg" className="h-8 mr-2"/> Pagos </span>
-            <span className="flex items-center justify-center"><img title="icono gestión" src="icons/icon-gestion.svg" className="h-8 mr-2"/> Gestión </span>
-
+          <p className="mt-8 text-center text-primary-700 text-3xl flex flex-wrap justify-center gap-8 gap-y-2">
+            <span className="flex items-center justify-center">
+              <img
+                title="icono cobros"
+                src="icons/icon-cobros.svg"
+                className="h-8 mr-2"
+              />{" "}
+              Cobros{" "}
+            </span>
+            <span className="flex items-center justify-center">
+              <img
+                title="icono pagos"
+                src="icons/icon-pagos.svg"
+                className="h-8 mr-2"
+              />{" "}
+              Pagos{" "}
+            </span>
+            <span className="flex items-center justify-center">
+              <img
+                title="icono gestión"
+                src="icons/icon-gestion.svg"
+                className="h-8 mr-2"
+              />{" "}
+              Gestión{" "}
+            </span>
           </p>
         </div>
         <BentoGrid>

@@ -17,7 +17,7 @@ const Hero = () => {
 
       <div className="container mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Content Column */}
-        <div className="text-left md:col-span-1">
+        <div className="text-left md:col-span-1 animate_top">
           <h1 className="text-primary text-5xl md:text-6xl font-bold mb-4">
             Simplifica tus pagos con Maxipagos
           </h1>
@@ -30,7 +30,7 @@ const Hero = () => {
         </div>
 
         {/* Image Column */}
-        <div className="relative w-full max-w-[702px] h-[568px] mx-auto md:col-span-1 flex items-center justify-center">
+        <div className="relative w-full max-w-[702px] h-[568px] mx-auto md:col-span-1 flex items-center justify-center animate_bottom">
 
           <div className="relative w-[95%] sm:w-[80%] md:w-[410px] h-[85%] sm:h-[80%] md:h-[528px] bg-primary rounded-xl overflow-hidden flex items-center justify-center shadow-2xl">
             <Image
