@@ -44,7 +44,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="w-full mx-auto flex flex-col md:flex-row bg-primary rounded-3xl shadow-lg overflow-hidden">
+        <div className="w-full mx-auto flex flex-col md:flex-row bg-primary rounded-3xl overflow-hidden">
           <div className="w-full md:w-1/2 p-8 text-white">
             <h2 className="text-3xl font-semibold mb-2">Contáctanos</h2>
             <p className="mb-6 text-base ">
@@ -103,7 +103,7 @@ const Contact = () => {
           <div className="w-full md:w-1/2 relative flex items-center justify-center p-8">
             <div className="relative w-full aspect-square md:aspect-auto md:h-full bg-white rounded-2xl overflow-hidden min-h-[400px]">
               {/* Fondo blur */}
-              <div className="absolute w-[860px] h-[860px] bg-primary rounded-full blur-[220px] -bottom-[50%] -right-[50%] z-[1]"></div>
+              <div className="absolute w-[320px] h-[320px] lg:w-[860px] lg:h-[860px] bg-primary rounded-full blur-[60px] lg:blur-[220px] -bottom-[5%] -right-[25%] lg:-bottom-[75%] lg:-right-[75%] z-[1]"></div>
 
               <Image
                 src="img/contact-1.png"
@@ -114,7 +114,7 @@ const Contact = () => {
                 style={{ objectPosition: "center" }}
               />
 
-              <div className="absolute z-[3] bottom-0 w-full bg-gradient-to-t from-secondary to-transparent p-6 pt-20 text-black text-center">
+              <div className="absolute z-[3] bottom-0 w-full bg-gradient-to-t from-secondary to-transparent p-6 pt-16 lg:pt-32 text-black text-center">
                 <p className="text-lg font-medium">
                   En Maxipagos, simplificamos tu gestión de pagos para que te
                   enfoques en lo más importante:{" "}

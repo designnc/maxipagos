@@ -8,7 +8,7 @@ import { FaFacebookF, FaHeart, FaInstagram } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer className="py-5 bg-primary text-primary-950" id="gm_footer">
-      <div className="container mx-auto my-4 px-12 py-8 rounded-3xl bg-primary-100">
+      <div className="container mx-auto max-w-7xl my-4 px-12 py-8 rounded-3xl bg-primary-100">
         <div className="flex flex-col md:flex-row justify-center items-start md:items-center">
           {/* Primera columna: Logo y redes sociales */}
           <div className="md:w-1/3 mb-4 md:mb-0 text-center md:text-left">

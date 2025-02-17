@@ -51,7 +51,7 @@ const HowItWorks: React.FC = () => {
   }, [activeStep]);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12">
+    <section className="container mx-auto max-w-7xl ">
       <div
         className="w-full flex flex-col md:flex-row rounded-xl overflow-hidden shadow-lg bg-primary relative"
         onMouseEnter={() => setIsHovered(true)}
