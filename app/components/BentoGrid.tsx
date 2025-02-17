@@ -83,8 +83,8 @@ export const BentoCard = ({
   return (
     <div
       className={cn(
-        "relative flex h-[460px] rounded-2xl bg-background overflow-hidden",
-        "dark:bg-background border border-black/10 dark:border dark:border-white/10",
+        "relative flex min-h-[480px] rounded-2xl bg-background overflow-hidden",
+        "dark:bg-zinc-900 border border-black/10 dark:border dark:border-white/10",
         containerClasses,
         className
       )}
@@ -119,7 +119,7 @@ export const BentoCard = ({
         <h3 className="text-lg lg:text-2xl font-semibold text-primary dark:text-primary-400 mb-0 lg:mb-2">
           {name}
         </h3>
-        <p className="text-neutral-400 mb-4 text-xs lg:text-base">
+        <p className="text-neutral-400 mb-4 text-sm lg:text-base">
           {description}
         </p>
 

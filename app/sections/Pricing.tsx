@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import Button from "../components/Button";
+import Label from "../components/Label";
 
 // Constantes para el color de destaque (puedes modificar estos valores)
 const HIGHLIGHT_COLOR = "bg-primary";
@@ -53,15 +54,21 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="planes" className="w-full py-16 px-4 md:px-8 text-center animate-fadeIn">
+    <section
+      id="planes"
+      className="w-full py-16 px-4 md:px-8 text-center animate-fadeIn"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Título y subtítulo */}
-        <h2 className="text-5xl font-bold mt-4 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          Planes para ti
-        </h2>
-        <p className="text-lg text-foreground/70 mb-8 transition-all duration-500">
-          Escoge la opción que mejor se adapte a tu negocio
-        </p>
+        <div className="py-8 flex flex-col items-center justify-center">
+          <Label text="Precios" />
+          <h2 className="text-5xl font-bold mt-4 pb-2 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Planes para ti
+          </h2>
+          <p className="text-xl text-foreground/70 mb-8 transition-all duration-500">
+            Escoge la opción que mejor se adapte a tu negocio
+          </p>
+        </div>
 
         {/* Toggle Mensual / Anual */}
         <div className="flex justify-center mb-10">
@@ -102,7 +109,7 @@ export default function Pricing() {
             return (
               <div
                 key={index}
-                className={`relative flex flex-col justify-between p-6 rounded-2xl shadow transition-transform duration-300 hover:scale-105
+                className={`relative flex flex-col justify-between p-6 rounded-2xl shadow transition-transform duration-300 hover:scale-105 overflow-hidden
                   ${
                     isHighlighted
                       ? `${HIGHLIGHT_COLOR} ${HIGHLIGHT_TEXT_COLOR} scale-105`
@@ -110,6 +117,12 @@ export default function Pricing() {
                   }
                 `}
               >
+                {/* Fondo decorativo similar al componente Background */}
+                {/*  <div className="absolute inset-0 ">
+                <div className="absolute w-[200px] h-[200px] bg-primary rounded-full blur-[70px] opacity-30 -top-10 left-1/3"></div>
+                <div className="absolute w-[200px] h-[80px] bg-primary rounded-full blur-[70px] opacity-20 bottom-1 left-4"></div>
+              </div> */}
+
                 {/* Título y subtítulo */}
                 <h3 className="text-2xl font-bold mb-1">{plan.name}</h3>
                 <p

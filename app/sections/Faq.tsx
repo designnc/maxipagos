@@ -114,8 +114,8 @@ export default function FaqPage() {
   );
 
   return (
-    <section id="faqs" className="py-16 px-8">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <section id="faqs" className="py-16">
+      <div className="container mx-auto max-w-7xl px-6 py-8">
         <div className="py-8 flex flex-col items-center justify-center">
           <Label text="FAQS" />
           <h1 className="text-5xl font-bold mt-4 pb-2 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">

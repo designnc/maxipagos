@@ -38,18 +38,8 @@ html {
   --color-secondary-950: #431505;
 
   /* Accent Cyan/Aqua Color Palette */
-  --color-accent: var(--color-accent-500);
-  --color-accent-50: #edfffe;
-  --color-accent-100: #c0feff;
-  --color-accent-200: #81fbff;
-  --color-accent-300: #3af8ff;
-  --color-accent-400: #00ffff;
-  --color-accent-500: #00e1e2;
-  --color-accent-600: #00b2b7;
-  --color-accent-700: #008c91;
-  --color-accent-800: #006c72;
-  --color-accent-900: #04585d;
-  --color-accent-950: #00343a;
+  --color-accent: var(--color-secondary-400);
+
 
 
   --animate-side-to-side: side-to-side 3s ease-in-out infinite;

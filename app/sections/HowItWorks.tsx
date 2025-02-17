@@ -21,13 +21,13 @@ const HowItWorks: React.FC = () => {
     {
       title: "Configura tu negocio",
       description: "Agrega tus productos, servicios y métodos de cobro.",
-      image: "img/step-2.jpg",
+      image: "img/step-2.png",
     },
     {
       title: "Automatiza y cobra",
       description:
         "Recibe pagos de manera fácil y segura, con todo automatizado.",
-      image: "img/step-3.jpg",
+      image: "img/step-3.png",
     },
   ];
 
@@ -60,7 +60,7 @@ const HowItWorks: React.FC = () => {
         {/* Columna izquierda con padding en desktop */}
         <div className="w-full md:w-1/2 md:p-8">
           {/* Contenedor interno para la imagen; se usa aspect-square en mobile y aspect-auto en desktop */}
-          <div className="relative aspect-square md:aspect-auto w-full h-full">
+          <div className="relative aspect-square md:aspect-auto w-full h-full bg-slate-100 rounded-0 lg:rounded-2xl">
             <Image
               src={steps[activeStep].image}
               alt={steps[activeStep].title}
@@ -70,7 +70,7 @@ const HowItWorks: React.FC = () => {
             />
             {/* Bloque de información, visible solo en móviles */}
             <div className="absolute bottom-0 left-0 right-0 md:hidden">
-              <div className="w-full bg-gradient-to-t from-primary to-transparent p-6">
+              <div className="w-full bg-gradient-to-t from-primary from-50% to-transparent p-8">
                 <div className="flex items-center mb-2">
                   <div className="flex items-center justify-center w-8 h-8 bg-white text-primary-700 rounded-full font-bold">
                     {activeStep + 1}

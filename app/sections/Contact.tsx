@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Button from "../components/Button";
+import Label from "../components/Label";
 
 interface InputFieldProps {
   label: string;
@@ -34,11 +35,13 @@ const Contact = () => {
   return (
     <section id="contacto" className="w-full flex flex-col items-center py-16">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-8 px-8 lg:px-0">
+        {/* Título y subtítulo */}
+        <div className="py-8 flex flex-col items-center justify-center px-4">
+          <Label text="Hablemos" />
           <h2 className="text-5xl font-bold mt-4 pb-2 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Contacto
           </h2>
-          <p className="mt-2 text-foreground/80 text-xl">
+          <p className="text-xl text-center text-foreground/70 mb-8 transition-all duration-500">
             ¿Tienes dudas o necesitas ayuda o quieres registrarte? ¡Contáctanos
             y con gusto te asistiremos!
           </p>
