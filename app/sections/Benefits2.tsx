@@ -2,6 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Label from "../components/Label";
 import { BentoCard, BentoGrid } from "../components/BentoGrid";
+import AnimatedListDemo from "../components/animate/animated-list-demo";
+import AnimatedBeamMultipleOutputDemo from "../components/animate/animated-beam-multiple-outputs";
 
 const features = [
   {
@@ -11,11 +13,7 @@ const features = [
     href: "/",
     cta: "Empezar",
     background: (
-      <img
-        className="w-full h-full object-contain" // Cambiado de object-cover a object-contain
-        src="benefits/benefits-1.png"
-        alt="Automatización Inteligente"
-      />
+       <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full scale-95 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" />
     ),
     className: "col-span-12 md:col-span-12",
     imagePosition: "right" as const,
@@ -40,18 +38,14 @@ const features = [
     description: "Administra todos tus clientes y pagos en un solo lugar...",
     href: "/",
     background: (
-      <img
-        className="w-full h-full object-contain" // Cambiado de object-cover y h-auto a h-full object-contain
-        src="benefits/benefits-3.png"
-        alt="Gestión Centralizada"
-      />
+       <AnimatedBeamMultipleOutputDemo className="absolute right-0 top-0 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_0%,#000_100%)] group-hover:scale-105" />
     ),
     className: "col-span-12 md:col-span-6",
     imagePosition: "bottom" as const,
   },
 ];
 
-const BenefitsSection = () => {
+const BenefitsSection2 = () => {
   return (
     <section id="caracteristicas" className="py-16 px-8">
       <div className="max-w-7xl mx-auto">
@@ -97,4 +91,4 @@ const BenefitsSection = () => {
   );
 };
 
-export default BenefitsSection;
+export default BenefitsSection2;

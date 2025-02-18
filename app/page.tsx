@@ -7,9 +7,10 @@ import Footer from "./sections/Footer";
 import Header from "./components/Header";
 import Background from "./components/Background";
 import Numbers from "./sections/Numbers";
-import BenefitsSection from "./sections/Benefits";
+//import BenefitsSection from "./sections/Benefits";
 import Contact from "./sections/Contact";
 import FaqPage from "./sections/Faq";
+import BenefitsSection2 from "./sections/Benefits2";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Numbers />
-      <BenefitsSection />
+      <BenefitsSection2 />
       <Features />
       {/* <Testimonials /> */}
       <HowItWorks />

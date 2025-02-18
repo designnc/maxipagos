@@ -115,7 +115,7 @@ export const BentoCard = ({
           contentClasses
         )}
       >
-        {Icon && <Icon className="h-12 w-12 text-neutral-700 mb-4" />}
+        {Icon && <Icon className="h-12 w-12 text-neutral-700 mb-0 lg:mb-4" />}
         <h3 className="text-lg lg:text-2xl font-semibold text-primary dark:text-primary-400 mb-0 lg:mb-2">
           {name}
         </h3>
