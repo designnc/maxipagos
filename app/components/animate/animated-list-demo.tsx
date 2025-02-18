@@ -75,7 +75,11 @@ function UserCard({ name, email, avatarUrl }: UserItem) {
   );
 }
 
-export default function AnimatedListDemo({ className }: { className?: string }) {
+export default function AnimatedListDemo({
+  className,
+}: {
+  className?: string;
+}) {
   return (
     <div
       className={cn(
@@ -90,7 +94,7 @@ export default function AnimatedListDemo({ className }: { className?: string }) 
       */}
       <div className="mb-4 flex items-center justify-between gap-2">
         <h6 className="font-semibold dark:text-white">Fecha de pagos</h6>
-        <div className="flex w-auto items-center gap-2 rounded-md border border-white/10 bg-white px-3 py-2 text-sm dark:bg-zinc-800 dark:text-white">
+        <div className="flex w-auto items-center gap-2 rounded-md border border-black/10 dark:border-white/10 bg-white px-3 py-2 text-sm dark:bg-zinc-800 dark:text-white">
           <p>25 de cada mes</p>
           <FaChevronDown />
         </div>
@@ -104,9 +108,9 @@ export default function AnimatedListDemo({ className }: { className?: string }) 
       */}
       <div
         className={cn(
-          "hidden md:flex",              // Oculto en mobile, visible en >= md
+          "hidden md:flex", // Oculto en mobile, visible en >= md
           "items-center gap-3",
-          "mt-6 w-full max-w-sm",        // Ajuste de ancho
+          "mt-6 w-full max-w-sm", // Ajuste de ancho
           "rounded-md shadow-2xl p-4",
           "bg-white dark:bg-zinc-800",
           "md:absolute md:bottom-8 md:right-0 z-10" // Absoluto sólo en >= md
@@ -134,7 +138,7 @@ export default function AnimatedListDemo({ className }: { className?: string }) 
       </AnimatedList>
 
       {/* Gradiente al final, por si lo usas para un fade-out */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-zinc-100 dark:from-background"></div>
     </div>
   );
 }
