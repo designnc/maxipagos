@@ -10,9 +10,9 @@ const Hero = () => {
     >
       {/* Círculos de fondo */}
       <div className="absolute inset-0 flex items-center justify-center -z-10">
-        <div className="absolute w-[98vw] h-[98vw] border border-black/30 rounded-full blur-[3px]"></div>
-        <div className="absolute w-[75vw] h-[75vw] border border-black/30 rounded-full blur-[3px]"></div>
-        <div className="absolute w-[45vw] h-[45vw] border border-black/30 rounded-full blur-[2px]"></div>
+        <div className="absolute w-[98vw] h-[98vw] border border-black/30 dark:border-white/30 rounded-full blur-[3px]"></div>
+        <div className="absolute w-[75vw] h-[75vw] border border-black/30 dark:border-white/30 rounded-full blur-[3px]"></div>
+        <div className="absolute w-[45vw] h-[45vw] border border-black/30 dark:border-white/30 rounded-full blur-[2px]"></div>
       </div>
 
       <div className="container mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

@@ -1,6 +1,5 @@
 "use client"
 
-
 import { cn } from "@/app/lib/utils"
 import { AnimatePresence, motion } from "motion/react"
 import React, { type ComponentPropsWithoutRef, useEffect, useMemo, useState } from "react"
@@ -23,23 +22,25 @@ export function AnimatedListItem({ children }: { children: React.ReactNode }) {
 export interface AnimatedListProps extends ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode
   delay?: number
+  extraDelayAtEnd?: number // tiempo extra al final de la lista
 }
 
-export const AnimatedList = React.memo(({ children, className, delay = 1000, ...props }: AnimatedListProps) => {
+export const AnimatedList = React.memo(({ children, className, delay = 1000, extraDelayAtEnd = 2000, ...props }: AnimatedListProps) => {
   const [index, setIndex] = useState(0)
   const childrenArray = useMemo(() => React.Children.toArray(children), [children])
 
   useEffect(() => {
-    if (index < childrenArray.length - 1) {
-      const timeout = setTimeout(() => {
-        setIndex((prevIndex) => (prevIndex + 1) % childrenArray.length)
-      }, delay)
+    // Si es el último elemento, agregamos extraDelayAtEnd; de lo contrario, usamos delay normal
+    const currentDelay = index === childrenArray.length - 1 ? delay + extraDelayAtEnd : delay
+    const timeout = setTimeout(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % childrenArray.length)
+    }, currentDelay)
 
-      return () => clearTimeout(timeout)
-    }
-  }, [index, delay, childrenArray.length])
+    return () => clearTimeout(timeout)
+  }, [index, delay, extraDelayAtEnd, childrenArray.length])
 
   const itemsToShow = useMemo(() => {
+    // Mostramos los elementos hasta el índice actual, en orden inverso
     const result = childrenArray.slice(0, index + 1).reverse()
     return result
   }, [index, childrenArray])
@@ -56,4 +57,3 @@ export const AnimatedList = React.memo(({ children, className, delay = 1000, ...
 })
 
 AnimatedList.displayName = "AnimatedList"
-

@@ -13,7 +13,7 @@ const features = [
     href: "/",
     cta: "Empezar",
     background: (
-       <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full scale-95 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" />
+       <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full scale-95 border-none transition-all duration-300 ease-out group-hover:scale-90" />
     ),
     className: "col-span-12 md:col-span-12",
     imagePosition: "right" as const,
@@ -38,7 +38,7 @@ const features = [
     description: "Administra todos tus clientes y pagos en un solo lugar...",
     href: "/",
     background: (
-       <AnimatedBeamMultipleOutputDemo className="absolute right-0 top-0 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_0%,#000_100%)] group-hover:scale-105" />
+       <AnimatedBeamMultipleOutputDemo className="absolute right-0 top-0 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_0%,#000_50%)] group-hover:scale-105" />
     ),
     className: "col-span-12 md:col-span-6",
     imagePosition: "bottom" as const,
