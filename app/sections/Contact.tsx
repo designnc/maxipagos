@@ -13,6 +13,8 @@ interface InputFieldProps {
   placeholder: string;
   type?: string;
   required?: boolean;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 interface TextAreaFieldProps {
@@ -25,23 +27,126 @@ interface TextAreaFieldProps {
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [rut, setRut] = useState("");
   const { ref, isInView } = useInView();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    if (loading) {
-      e.preventDefault();
-      return;
-    }
-    setLoading(true);
+  const formatRut = (value: string): string => {
+    const clean = value.replace(/[^0-9kK]/g, "");
+    if (clean.length === 0) return "";
+    if (clean.length === 1) return clean;
+    const body = clean.slice(0, -1);
+    const dv = clean.slice(-1).toUpperCase();
+    const formattedBody = body.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return `${formattedBody}-${dv}`;
   };
 
-  // Variantes de animación ajustadas para una transición más suave
+  const validateRut = (rut: string): boolean => {
+    const rutLimpio = rut.replace(/\./g, "").replace(/-/g, "").toUpperCase();
+    if (rutLimpio.length < 2) return false;
+
+    const cuerpo = rutLimpio.slice(0, -1);
+    const dv = rutLimpio.slice(-1);
+
+    let suma = 0;
+    let multiplicador = 2;
+
+    for (let i = cuerpo.length - 1; i >= 0; i--) {
+      suma += parseInt(cuerpo[i]) * multiplicador;
+      multiplicador = multiplicador === 7 ? 2 : multiplicador + 1;
+    }
+
+    const resto = suma % 11;
+    const dvCalculado = 11 - resto;
+    const dvEsperado =
+      dvCalculado === 11 ? "0" : dvCalculado === 10 ? "K" : dvCalculado.toString();
+
+    return dvEsperado === dv;
+  };
+
+  const handleRutChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const formatted = formatRut(value);
+    setRut(formatted);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (loading) return;
+    setLoading(true);
+    setError("");
+    setSuccess(false);
+
+    const formData = new FormData(e.currentTarget);
+    const nombre = formData.get("nombre") as string;
+    const apellido = formData.get("apellido") as string;
+    const rutValue = formData.get("rut") as string;
+    const empresa = formData.get("empresa") as string;
+    const email = formData.get("email") as string;
+    const telefono = formData.get("telefono") as string;
+    const address = (formData.get("address") as string) || "Sin dirección";
+    const mensaje = formData.get("mensaje") as string; // Capturamos el textarea
+
+    // Validar RUT
+    if (!validateRut(rutValue)) {
+      setError("El RUT ingresado no es válido");
+      setLoading(false);
+      return;
+    }
+
+    // Datos a enviar
+    const data = {
+      name: nombre,
+      lastname: apellido,
+      rut: rutValue,
+      address,
+      email,
+      businessName: empresa,
+      phone: telefono,
+      mensaje, // Incluimos el mensaje
+    };
+
+    try {
+      const response = await fetch(
+        "https://us-central1-maxipays-7cbdb.cloudfunctions.net/createPendingUser",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        }
+      );
+
+      // Verificar si la petición HTTP fue exitosa
+      if (!response.ok) {
+        setError("Ocurrió un error al enviar el formulario (HTTP no-200)");
+        return;
+      }
+
+      // Parsear la respuesta
+      const dataApi = await response.json();
+      // dataApi.res == true => Exito, dataApi.res == false => Error lógico
+      if (dataApi.res === true) {
+        setSuccess(true);
+        e.currentTarget.reset();
+        setRut("");
+      } else {
+        setError("Error: ya se había intentado el registro o no se pudo completar.");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Ocurrió un error en la comunicación con el servidor");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.6,
         ease: "easeOut",
         staggerChildren: 0.2,
@@ -51,14 +156,18 @@ const Contact = () => {
 
   const childVariants = {
     hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.9, rotate: 5 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
+    visible: {
+      opacity: 1,
+      scale: 1,
       rotate: 0,
       transition: { duration: 0.8, ease: "easeOut" },
     },
@@ -71,7 +180,6 @@ const Contact = () => {
       className="w-full flex flex-col items-center py-16"
     >
       <div className="container mx-auto max-w-7xl">
-        {/* Título y subtítulo con animación coordinada */}
         <motion.div
           className="py-8 flex flex-col items-center justify-center px-4"
           initial="hidden"
@@ -91,7 +199,8 @@ const Contact = () => {
             variants={childVariants}
             className="text-xl text-center text-foreground/70 mb-8 transition-all duration-500"
           >
-            ¿Tienes dudas o necesitas ayuda o quieres registrarte? ¡Contáctanos y con gusto te asistiremos!
+            ¿Tienes dudas o necesitas ayuda o quieres registrarte? ¡Contáctanos
+            y con gusto te asistiremos!
           </motion.p>
         </motion.div>
 
@@ -102,14 +211,23 @@ const Contact = () => {
             animate={isInView ? "visible" : "hidden"}
             variants={containerVariants}
           >
-            <motion.h2 variants={childVariants} className="text-3xl font-semibold mb-2">
+            <motion.h2
+              variants={childVariants}
+              className="text-3xl font-semibold mb-2"
+            >
               Contáctanos
             </motion.h2>
             <motion.p variants={childVariants} className="mb-6 text-base">
-              En Maxipagos estamos listos para ayudarte. Déjanos tu mensaje y nos pondremos en contacto contigo lo antes posible.
+              En Maxipagos estamos listos para ayudarte. Déjanos tu mensaje y
+              nos pondremos en contacto contigo lo antes posible.
             </motion.p>
 
-            <motion.form onSubmit={handleSubmit} className="space-y-4" variants={childVariants}>
+            <motion.form
+              onSubmit={handleSubmit}
+              className="space-y-4"
+              variants={childVariants}
+              method="post"
+            >
               <div className="flex flex-col md:flex-row gap-4">
                 <InputField
                   label="Nombre"
@@ -124,26 +242,62 @@ const Contact = () => {
                   required
                 />
               </div>
-              <InputField
-                label="Email"
-                name="email"
-                placeholder="tucorreo@ejemplo.com"
-                type="email"
-                required
-              />
-              <InputField
-                label="Número de teléfono"
-                name="telefono"
-                placeholder="+56 9 1234 5678"
-                required
-              />
+              <div className="flex flex-col md:flex-row gap-4">
+                <InputField
+                  label="RUT"
+                  name="rut"
+                  placeholder="11.111.111-1"
+                  type="text"
+                  required
+                  value={rut}
+                  onChange={handleRutChange}
+                />
+                <InputField
+                  label="Empresa"
+                  name="empresa"
+                  placeholder="Tu empresa"
+                  required
+                />
+              </div>
+              {/* 
+                Si tu API requiere la dirección, añade un input "address"
+                <InputField
+                  label="Dirección"
+                  name="address"
+                  placeholder="Ej: Av. Siempre Viva 123"
+                />
+              */}
+              <div className="flex flex-col md:flex-row gap-4">
+                <InputField
+                  label="Email"
+                  name="email"
+                  placeholder="tucorreo@ejemplo.com"
+                  type="email"
+                  required
+                />
+                <InputField
+                  label="Número de teléfono"
+                  name="telefono"
+                  placeholder="+56 9 1234 5678"
+                  required
+                />
+              </div>
               <TextAreaField
                 label="Mensaje"
                 name="mensaje"
                 placeholder="Escribe tu mensaje aquí..."
                 rows={4}
-                required
               />
+              {error && (
+                <p className="text-white text-center font-bold">
+                  {error}
+                </p>
+              )}
+              {success && (
+                <p className="text-green-300 text-center font-bold">
+                  ¡Enviado correctamente!
+                </p>
+              )}
               <div className="flex justify-center">
                 <Button
                   variant="primary"
@@ -165,8 +319,7 @@ const Contact = () => {
           >
             <div className="relative w-full aspect-square md:aspect-auto md:h-full bg-white rounded-2xl overflow-hidden min-h-[400px]">
               {/* Fondo blur */}
-              <div className="absolute w-[320px] h-[320px] lg:w-[860px] lg:h-[860px] bg-primary rounded-full blur-[60px] lg:blur-[220px] -bottom-[5%] -right-[25%] lg:-bottom-[75%] lg:-right-[75%] z-[1]"></div>
-
+              <div className="absolute w-[320px] h-[320px] lg:w-[860px] lg:h-[860px] bg-primary rounded-full blur-[60px] lg:blur-[220px] -bottom-[5%] -right-[25%] lg:-bottom-[75%] lg:-right-[75%] z-[1]" />
               <Image
                 src="img/contact-1.png"
                 alt="Persona señalando"
@@ -175,10 +328,11 @@ const Contact = () => {
                 className="w-auto h-full object-cover absolute z-[2] left-1/2 -translate-x-1/2"
                 style={{ objectPosition: "center" }}
               />
-
               <div className="absolute z-[3] bottom-0 w-full bg-gradient-to-t from-secondary to-transparent p-6 pt-16 lg:pt-32 text-black text-center">
                 <p className="text-lg font-medium">
-                  En Maxipagos, simplificamos tu gestión de pagos para que te enfoques en lo más importante: <strong>hacer crecer tu negocio</strong>.
+                  En Maxipagos, simplificamos tu gestión de pagos para que te
+                  enfoques en lo más importante:{" "}
+                  <strong>hacer crecer tu negocio</strong>.
                 </p>
               </div>
             </div>
@@ -195,6 +349,8 @@ const InputField: React.FC<InputFieldProps> = ({
   placeholder,
   type = "text",
   required = false,
+  value,
+  onChange,
 }) => (
   <div className="w-full">
     <label htmlFor={name} className="block mb-1 font-semibold text-white">
@@ -206,7 +362,10 @@ const InputField: React.FC<InputFieldProps> = ({
       type={type}
       placeholder={placeholder}
       required={required}
-      className="w-full rounded-md px-3 py-2 border border-white/20 text-white bg-white/5 focus:ring focus:ring-yellow-400"
+      value={value}
+      onChange={onChange}
+      className="w-full rounded-md px-3 py-2 border border-white/20 text-white bg-white/5
+           focus:outline-none focus:ring-2 focus:ring-yellow-500"
     />
   </div>
 );
@@ -228,7 +387,8 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
       placeholder={placeholder}
       rows={rows}
       required={required}
-      className="w-full rounded-md px-3 py-2 border border-white/20 text-white bg-white/5 focus:ring focus:ring-yellow-400 min-h-16 max-h-40"
+      className="w-full rounded-md px-3 py-2 border border-white/20 text-white bg-white/5
+           focus:outline-none focus:ring-2 focus:ring-yellow-500 min-h-16 max-h-40"
     />
   </div>
 );
