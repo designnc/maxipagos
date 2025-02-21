@@ -10,134 +10,77 @@ interface FaqItem {
 }
 
 const faqs: FaqItem[] = [
-  // Funcionalidad de FooDiv
+  // General
   {
-    category: "Funcionalidad de FooDiv",
-    question: "¿Es necesario descargar la app para usar FooDiv?",
+    category: "General",
+    question: "¿Qué es Maxipagos y cómo puede ayudar a mi negocio?",
     answer:
-      "No es obligatorio. Los clientes pueden escanear un código QR y acceder al menú y pedidos sin descargar la app.",
+      "Maxipagos es un servicio que simplifica la gestión de pagos en línea, ayudándote a generar cobros de manera eficiente y segura. Además, centraliza la información de tus transacciones y crea una base de pago organizada, optimizando la gestión y mejorando la eficiencia de tu negocio.",
   },
   {
-    category: "Funcionalidad de FooDiv",
-    question: "¿Puedo dividir la cuenta entre varios comensales?",
+    category: "General",
+    question: "¿Para qué tipo de negocios es ideal Maxipagos?",
     answer:
-      "Sí, FooDiv permite pagos individuales o dividir la cuenta según el consumo de cada persona.",
+      "Maxipagos se adapta a cualquier negocio que requiera cobrar a través de canales digitales, desde pequeños emprendedores hasta grandes empresas con necesidades más avanzadas.",
   },
   {
-    category: "Funcionalidad de FooDiv",
-    question: "¿Puedo hacer un pedido sin conexión a internet?",
+    category: "General",
+    question: "¿Maxipagos cobra alguna comisión por transacción?",
     answer:
-      "No, FooDiv requiere conexión a internet para funcionar correctamente y enviar los pedidos en tiempo real.",
-  },
-  {
-    category: "Funcionalidad de FooDiv",
-    question: "¿Puedo hacer modificaciones en mi pedido?",
-    answer:
-      "Sí, los clientes pueden agregar notas o especificaciones en cada platillo antes de enviarlo a la cocina.",
+      "Sí, existe una tarifa por cada transacción procesada. Sin embargo, ofrecemos planes y tarifas personalizadas.",
   },
 
-  // Uso para Restaurantes
+  // Administración de Pagos
   {
-    category: "Uso para Restaurantes",
-    question: "¿Cómo recibo los pedidos en mi restaurante?",
+    category: "Administración de Pagos",
+    question: "¿Puedo recibir pagos con tarjeta de crédito y débito?",
     answer:
-      "Puedes recibirlos en una tablet, computadora o impresora en la cocina para una gestión más eficiente.",
+      "Por supuesto. Maxipagos te permite recibir pagos con tarjetas de crédito y débito, además de otros métodos de pago en línea.",
   },
   {
-    category: "Uso para Restaurantes",
-    question: "¿FooDiv se integra con pantallas en la cocina?",
+    category: "Administración de Pagos",
+    question: "¿Cómo puedo hacer un seguimiento de mis pagos en tiempo real?",
     answer:
-      "Sí, puedes visualizar el estado de los pedidos en pantallas digitales dentro del restaurante.",
+      "Dentro de tu panel de control de Maxipagos, podrás ver todas tus transacciones, estados de pago y estadísticas de ventas en tiempo real.",
   },
+
+  // Gestión de Clientes
   {
-    category: "Uso para Restaurantes",
-    question: "¿Puedo personalizar mi menú en FooDiv?",
+    category: "Gestión de Clientes",
+    question: "¿Puedo programar recordatorios de pago automático?",
     answer:
-      "Sí, puedes actualizar tu menú, agregar imágenes y modificar precios en cualquier momento.",
+      "Sí, la plataforma te permite programar recordatorios de pago automático para tus clientes, ayudándote a mantener al día tus cobros y evitar retrasos.",
   },
+
+  // Marketing y Promociones
   {
-    category: "Uso para Restaurantes",
+    category: "Marketing y Promociones",
+    question: "¿Cómo crear cupones de descuento?",
+    answer:
+      "Maxipagos ofrece herramientas para crear y gestionar cupones de descuento de manera fácil. Desde tu panel de control, puedes establecer el valor del descuento, la duración y las condiciones de uso.",
+  },
+
+  // Comercios Electrónicos
+  {
+    category: "Comercios Electrónicos",
     question:
-      "¿Se pueden administrar los pedidos desde diferentes dispositivos?",
+      "¿Maxipagos se integra con otras plataformas de comercio electrónico?",
     answer:
-      "Sí, puedes gestionar los pedidos desde múltiples dispositivos en el restaurante.",
+      "Sí, ofrecemos integraciones con diversas plataformas de e-commerce para que puedas gestionar tus ventas y pagos en un solo lugar.",
   },
 
-  // Pagos y Seguridad
+  // Links de Pago
   {
-    category: "Pagos y Seguridad",
-    question: "¿Qué métodos de pago acepta FooDiv?",
+    category: "Links de Pago",
+    question: "¿Puedo generar links de pago para compartir con mis clientes?",
     answer:
-      "FooDiv permite pagos con tarjetas de crédito/débito, billeteras digitales y pagos en efectivo si el restaurante lo habilita.",
+      "Exacto, puedes crear links de pago personalizados y compartirlos por correo electrónico, redes sociales o aplicaciones de mensajería.",
   },
   {
-    category: "Pagos y Seguridad",
-    question: "¿Es seguro pagar a través de FooDiv?",
+    category: "Links de Pago",
+    question: "¿Los links de pago tienen fecha de expiración?",
     answer:
-      "Sí, usamos tecnología de encriptación para garantizar transacciones seguras y confiables.",
-  },
-  {
-    category: "Pagos y Seguridad",
-    question: "¿FooDiv cobra comisiones por transacciones?",
-    answer:
-      "Dependerá del plan contratado. Contáctanos para más detalles sobre tarifas.",
-  },
-  {
-    category: "Pagos y Seguridad",
-    question: "¿Puedo obtener facturas de mis pagos?",
-    answer:
-      "Sí, FooDiv permite generar facturas digitales según las opciones del restaurante.",
-  },
-
-  // Instalación y Configuración
-  {
-    category: "Instalación y Configuración",
-    question: "¿Cómo puedo registrar mi restaurante en FooDiv?",
-    answer:
-      "Solo necesitas completar el formulario de registro y nuestro equipo te ayudará a configurar tu perfil.",
-  },
-  {
-    category: "Instalación y Configuración",
-    question: "¿FooDiv necesita hardware especial para funcionar?",
-    answer: "No, funciona en cualquier dispositivo con acceso a internet.",
-  },
-  {
-    category: "Instalación y Configuración",
-    question: "¿Cuánto tiempo toma la configuración inicial?",
-    answer:
-      "En menos de 24 horas puedes tener FooDiv funcionando en tu restaurante.",
-  },
-  {
-    category: "Instalación y Configuración",
-    question: "¿Puedo agregar más de un usuario para administrar FooDiv?",
-    answer:
-      "Sí, puedes asignar diferentes roles y accesos para el personal del restaurante.",
-  },
-
-  // Soporte y Ayuda
-  {
-    category: "Soporte y Ayuda",
-    question: "¿Cómo puedo contactar al soporte de FooDiv?",
-    answer:
-      "Puedes escribirnos a nuestro correo de soporte, WhatsApp o llamarnos directamente.",
-  },
-  {
-    category: "Soporte y Ayuda",
-    question: "¿FooDiv ofrece capacitación para los empleados?",
-    answer:
-      "Sí, brindamos sesiones de capacitación para que el personal aprenda a usar FooDiv de manera eficiente.",
-  },
-  {
-    category: "Soporte y Ayuda",
-    question: "¿Qué pasa si tengo problemas con un pedido o un pago?",
-    answer:
-      "Nuestro equipo de soporte está disponible para ayudarte a resolver cualquier inconveniente.",
-  },
-  {
-    category: "Soporte y Ayuda",
-    question: "¿Puedo cancelar mi suscripción en cualquier momento?",
-    answer:
-      "Sí, puedes gestionar tu suscripción desde tu cuenta o contactarnos para más detalles.",
+      "Puedes configurar una fecha de expiración para cada link de pago según tus necesidades y la política de tu negocio.",
   },
 ];
 

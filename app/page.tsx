@@ -21,6 +21,7 @@ export default function Home() {
       <Numbers />
       <BenefitsSection2 />
       <Features />
+      {/* <Testimonials /> */}
       <HowItWorks />
       <Pricing />
       <FaqPage />

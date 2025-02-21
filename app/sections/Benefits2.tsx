@@ -2,37 +2,40 @@
 /* eslint-disable @next/next/no-img-element */
 import Label from "../components/Label";
 import { BentoCard, BentoGrid } from "../components/BentoGrid";
+import AnimatedListDemo from "../components/animate/animated-list-demo";
+import AnimatedBeamMultipleOutputDemo from "../components/animate/animated-beam-multiple-outputs";
+import PaymentLinkCard from "../components/animate/AnimatedPayLink";
 
 const features = [
   {
-    name: "Mayor rapidez y comodidad",
+    name: "Automatización Inteligente de Cobros",
     description:
-      "Los clientes ordenan y pagan sin esperas, mejorando su experiencia. Los restaurantes agilizan el servicio y aumentan la rotación de mesas.",
+      "Olvídate de los recordatorios manuales. Programa y automatiza los cobros por correo electrónico, asegurando que recibas tus pagos a tiempo sin esfuerzo adicional.",
     href: "/",
     cta: "Empezar",
     background: (
-       <div className="absolute right-2 top-4 h-[300px] w-full scale-95 border-none transition-all duration-300 ease-out group-hover:scale-90" />
+       <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full scale-95 border-none transition-all duration-300 ease-out group-hover:scale-90" />
     ),
     className: "col-span-12 md:col-span-12",
     imagePosition: "right" as const,
   },
   {
-    name: "Aumento en ventas y eficiencia",
+    name: "Pagos Rápidos y Seguros",
     description:
-      "Los restaurantes optimizan tiempos y reducen errores en los pedidos.",
+      "Ofrece a tus clientes múltiples opciones de pago, desde tarjetas hasta links de pago personalizados. Transacciones seguras y sin complicaciones en pocos clics.",
     href: "/",
     background: (
-      <div className="absolute right-0 top-0 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_0%,#000_50%)] group-hover:scale-105" />
+      <PaymentLinkCard />
     ),
     className: "col-span-12 md:col-span-6 ",
     imagePosition: "top" as const,
   },
   {
-    name: "Menos contacto, más seguridad",
-    description: "Pedidos y pagos digitales reducen el uso de efectivo y contacto físico.",
+    name: "Gestión Centralizada de Clientes y Finanzas",
+    description: "Administra todos tus clientes y pagos en un solo lugar...",
     href: "/",
     background: (
-       <div className="absolute right-0 top-0 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_0%,#000_50%)] group-hover:scale-105" />
+       <AnimatedBeamMultipleOutputDemo className="absolute right-0 top-0 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_0%,#000_50%)] group-hover:scale-105" />
     ),
     className: "col-span-12 md:col-span-6",
     imagePosition: "bottom" as const,
@@ -55,7 +58,7 @@ const BenefitsSection2 = () => {
                 src="icons/icon-cobros.svg"
                 className="h-8 mr-2"
               />{" "}
-              Comodidad{" "}
+              Cobros{" "}
             </span>
             <span className="flex items-center justify-center">
               <img
@@ -63,7 +66,7 @@ const BenefitsSection2 = () => {
                 src="icons/icon-pagos.svg"
                 className="h-8 mr-2"
               />{" "}
-              Eficiencia{" "}
+              Pagos{" "}
             </span>
             <span className="flex items-center justify-center">
               <img
@@ -71,7 +74,7 @@ const BenefitsSection2 = () => {
                 src="icons/icon-gestion.svg"
                 className="h-8 mr-2"
               />{" "}
-              Seguridad{" "}
+              Gestión{" "}
             </span>
           </p>
         </div>

@@ -1,9 +1,9 @@
 // app/components/ui/Footer.tsx
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { FaFacebookF, FaHeart, FaInstagram } from "react-icons/fa";
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaFacebookF, FaHeart, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -13,23 +13,10 @@ const Footer = () => {
           {/* Primera columna: Logo y redes sociales */}
           <div className="md:w-1/3 mb-4 md:mb-0 text-center md:text-left">
             <figure className="inline-block w-auto">
-              <div className="flex items-center gap-2">
-                <Link href="/" className="flex items-center gap-1">
-                  <Image
-                    src="iso.svg"
-                    width={48}
-                    height={48}
-                    alt="Isotype Logo"
-                    className="w-12"
-                  />
-                  <h1 className="text-3xl font-black text-primary">FooDiv</h1>
-                </Link>
-              </div>
-              <figcaption className="font-bold mt-2">
-                Simplifica tu restaurante con FooDiv
-              </figcaption>
+              <Image src="maxipagos-logo.svg" alt="Logo de Maxipagos" width={150} height={50} className="mx-auto md:mx-0" />
+              <figcaption className="font-bold mt-2">Simplifica tus pagos</figcaption>
             </figure>
-            <div className="flex justify-start mt-5">
+            <div className="flex justify-center md:justify-start mt-5">
               <a
                 href="#"
                 className="rounded-full bg-primary hover:bg-primary-800 p-3 mr-3 transition-colors duration-300"
@@ -128,31 +115,33 @@ const Footer = () => {
               <Image src="/img/google-play-badge.png" alt="Google Play" width={124} height={40} />
             </a> */}
           </div>
+          
         </div>
 
         {/* Línea divisoria */}
-        <hr className="my-4 border-primary opacity-10" />
+        <hr className="my-4 border-primary opacity-10" />  
 
         {/* Segunda fila: Derechos de autor */}
         <div className="w-full md:w-2/3 mb-4 md:mb-0 text-foregrount">
-          <p>
-            FooDiv &copy; {new Date().getFullYear()} | Desarrollado con{" "}
-            <FaHeart
-              className="inline text-red-500"
-              size={20}
-              aria-hidden="true"
-            />{" "}
-            por{" "}
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline hover:text-accent"
-            >
-              FOSI
-            </a>
-          </p>
-        </div>
+              <p>
+                Maxipagos &copy; {new Date().getFullYear()} | Desarrollado
+                con{" "}
+                <FaHeart
+                  className="inline text-red-500"
+                  size={20}
+                  aria-hidden="true"
+                />{" "}
+                por{" "}
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline hover:text-accent"
+                >
+                  FOSI
+                </a>
+              </p>
+            </div>
       </div>
     </footer>
   );

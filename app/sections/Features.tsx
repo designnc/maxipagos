@@ -1,41 +1,49 @@
 import React from "react";
 import Label from "../components/Label";
-import { FaChartBar, FaClock, FaCreditCard, FaPrint, FaTv, FaUtensils } from "react-icons/fa";
+import {
+  FaRegCreditCard,
+  FaUser,
+  FaTag,
+  FaFileAlt,
+  FaLink,
+  FaQrcode,
+} from "react-icons/fa";
 
 const Features = () => {
   const features = [
     {
-      title: "Pedidos desde la mesa",
-      description: "Los clientes pueden ordenar sin esperar al mesero, directamente desde su celular.",
-      icon: <FaUtensils />,
+      title: "Administración de pagos",
+      description: "Control centralizado de tus pagos de forma transparente.",
+      icon: <FaRegCreditCard />,
     },
     {
-      title: "Pagos digitales y divididos",
-      description: "Paga sin contacto y divide la cuenta fácilmente entre comensales.",
-      icon: <FaCreditCard />,
+      title: "Gestión de clientes",
+      description: "Administra clientes y automatiza recordatorios de cobro.",
+      icon: <FaUser />,
     },
     {
-      title: "Seguimiento en tiempo real",
-      description: "Los clientes ven el estado de su pedido en vivo desde la app.",
-      icon: <FaClock />,
+      title: "Promociones",
+      description: "Crea y envía ofertas personalizadas para tus clientes.",
+      icon: <FaTag />,
     },
     {
-      title: "Integración con pantallas",
-      description: "Muestra los pedidos en cocina y en pantallas para mejorar la gestión.",
-      icon: <FaTv />,
+      title: "Documentos electrónicos",
+      description: "Genera y organiza documentos digitales fácilmente.",
+      icon: <FaFileAlt />,
     },
     {
-      title: "Impresión automática de pedidos",
-      description: "Envía órdenes directamente a impresoras en la cocina sin intervención manual.",
-      icon: <FaPrint />,
+      title: "Links de pago",
+      description:
+        "Crea links seguros para transacciones rápidas y confiables.",
+      icon: <FaLink />,
     },
     {
-      title: "Gestión eficiente de pedidos",
-      description: "Organiza las órdenes por comensal, evita errores y optimiza el servicio.",
-      icon: <FaChartBar />,
+      title: "Pago QR",
+      description:
+        "Crea links seguros para transacciones rápidas y confiables.",
+      icon: <FaQrcode />,
     }
   ];
-
 
   return (
     <section className="py-16 px-8">
@@ -46,7 +54,7 @@ const Features = () => {
             Características principales
           </h2>
           <p className="mt-2 text-center text-foreground/80 text-xl">
-            Potencia tu restaurante con funciones eficientes y seguras.
+            Potencia tu negocio con funciones eficientes y seguras.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
