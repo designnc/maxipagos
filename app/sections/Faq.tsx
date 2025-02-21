@@ -128,7 +128,7 @@ export default function FaqPage() {
             <h2 className="text-xl lg:text-2xl font-semibold mb-4 text-foreground/60">
               {category}
             </h2>
-
+            
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {items.map((faq, index) => (
                 <AccordionItem key={index} faq={faq} isDesktop={isDesktop} />
