@@ -1,6 +1,6 @@
 const Testimonials = () => {
     const testimonials = [
-      { name: "María P.", text: "Maxipagos me ahorró horas de trabajo cada semana." },
+      { name: "María P.", text: "FooDiv me ahorró horas de trabajo cada semana." },
       { name: "Juan L.", text: "Automatizar mis cobros nunca fue tan fácil. ¡Excelente servicio!" },
       { name: "Ana G.", text: "Las promociones ayudaron a aumentar mis ventas rápidamente." },
     ];

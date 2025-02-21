@@ -11,8 +11,9 @@ import { RiLoginBoxFill } from "react-icons/ri";
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
-  { href: "#caracteristicas", label: "Características" },
-  { href: "#planes", label: "Planes" },
+  { href: "#beneficios", label: "Beneficios" },
+  { href: "#funcionamiento", label: "Cómo funciona" },
+  { href: "#precios", label: "Precios" },
   { href: "#contacto", label: "Contacto" },
 ];
 
@@ -37,14 +38,15 @@ const Header: React.FC = () => {
       <div className="conatiner max-w-7xl mx-auto py-3 px-8 md:px-8 flex items-center justify-between w-full">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-1">
             <Image
-              src="maxipagos-logo.svg"
+              src="iso.svg"
               width={48}
               height={48}
               alt="Isotype Logo"
-              className="w-48"
+              className="w-12"
             />
+            <h1 className="text-3xl font-black text-primary">FooDiv</h1>
           </Link>
         </div>
 
@@ -71,8 +73,8 @@ const Header: React.FC = () => {
                       href={link.href}
                       className={`rounded-full px-3 lg:px-4 py-2 text-[12px] xl:text-sm uppercase font-medium transition-all ${
                         isActive
-                          ? "bg-foreground/30 text-primary-300"
-                          : "text-white/90 hover:text-secondary"
+                          ? "bg-foreground/30 text-white"
+                          : "text-white/70 hover:text-white"
                       }`}
                     >
                       {link.label}

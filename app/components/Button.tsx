@@ -80,7 +80,7 @@ const Button: React.FC<ButtonProps> = ({
   // Definir las clases según la variante utilizando variantes de Tailwind para el modo oscuro
   const variantClasses: Record<"primary" | "text" | "outline", string> = {
     primary:
-      "bg-secondary text-secondary-950 hover:bg-secondary-400 hover:text-white hover:scale-105 rounded-full border-transparent shadow-md inset-shadow-sm inset-shadow-white/20 ring ring-secondary/20 inset-ring inset-ring-white/15 dark:bg-accent-300 dark:text-accent-950 dark:hover:bg-accent",
+      "bg-secondary text-black/60 hover:bg-secondary-400 hover:text-black/80 hover:scale-105 rounded-full border-transparent shadow-md inset-shadow-sm inset-shadow-white/20 ring ring-secondary/20 inset-ring inset-ring-white/15 dark:bg-accent-300 dark:text-accent-950 dark:hover:bg-accent",
     text:
       "bg-transparent text-primary hover:bg-primary/20 hover:scale-105 rounded-full border-transparent dark:text-accent-400 dark:hover:text-accent-200 dark:hover:bg-accent-300/20 uppercase",
     outline:

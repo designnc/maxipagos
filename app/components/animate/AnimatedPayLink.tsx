@@ -28,7 +28,7 @@ const PaymentLinkCard: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-center gap-2 mt-4 p-2 rounded-xl">
           <div className="flex-1 w-full flex items-center gap-2 bg-gray-100 dark:bg-gray-800 rounded-md p-3 text-sm text-gray-700 dark:text-gray-300 truncate">
             <span className="text-gray-500">🔗</span>
-            https://www.maxipagos.cl/venta/i2ks2445m12
+            https://www.foodiv.cl/venta/i2ks2445m12
           </div>
           <button className="inline-flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 transition-colors text-white px-4 py-2 rounded-full">
             <AiOutlineCopy size={18} />

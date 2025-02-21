@@ -13,21 +13,31 @@ interface Step {
 const HowItWorks: React.FC = () => {
   const steps: Step[] = [
     {
-      title: "Regístrate en segundos",
+      title: "Explora el menú 📲",
       description:
-        "Crea tu cuenta rápidamente con nuestros simples formularios.",
+        "Escanea el código QR o abre la app para ver el menú digital.",
       image: "img/step-1.png",
     },
     {
-      title: "Configura tu negocio",
-      description: "Agrega tus productos, servicios y métodos de cobro.",
+      title: "Haz tu pedido 🍽️",
+      description:
+        "Selecciona tus platillos y envíalos directamente a la cocina.",
       image: "img/step-2.png",
     },
     {
-      title: "Automatiza y cobra",
-      description:
-        "Recibe pagos de manera fácil y segura, con todo automatizado.",
+      title: "Sigue el estado en vivo ⏳",
+      description: "Ve en tiempo real cuándo tu pedido está listo.",
       image: "img/step-3.png",
+    },
+    {
+      title: "Paga sin contacto 💳",
+      description: "Divide la cuenta o paga con un solo clic desde la app.",
+      image: "img/step-4.png",
+    },
+    {
+      title: "Disfruta tu comida 🎉",
+      description: "Relájate mientras el restaurante se encarga del resto.",
+      image: "img/step-5.png",
     },
   ];
 
@@ -93,11 +103,11 @@ const HowItWorks: React.FC = () => {
             CÓMO FUNCIONA
           </h2>
           <h3 className="text-white text-4xl font-bold mb-4">
-            Descubre cómo Maxipagos Optimiza tus Cobros
+            Descubre lo fácil que es disfrutar de tu comida sin complicaciones.
           </h3>
           <p className="text-white text-base mb-4">
-            Simplifica tus cobros y ahorra tiempo con Maxipagos. Configura,
-            automatiza y haz crecer tu negocio fácilmente.
+            Con FooDiv, ordenar y pagar en restaurantes es más rápido y
+            eficiente. ¡Solo sigue estos pasos!
           </p>
 
           {/* Lista de pasos visible solo en desktop */}

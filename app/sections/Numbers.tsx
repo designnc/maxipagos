@@ -1,7 +1,8 @@
 "use client";
-import { FaCreditCard, FaUser, FaUsers } from "react-icons/fa";
+import { FaMobile, FaRocket } from "react-icons/fa";
 import CountUp from "react-countup";
 import { useInView } from "../hooks/useInView";
+import { FaBowlFood } from "react-icons/fa6";
 
 interface cardDataType {
   icon: React.ReactNode;
@@ -16,29 +17,30 @@ interface cardDataType {
 
 const cardData: cardDataType[] = [
   {
-    icon: <FaUsers size={64} />,
-    value: "15",
-    heading: "Usuarios activos",
-    suffix: "K+",
-    prefix: "",
-    bgColor: "bg-purple-200",
-    iconColor: "text-purple-500",
+    icon: <FaRocket size={64} />,
+    value: "500",
+    heading: "Restaurantes usan FooDiv",
+    suffix: "",
+    prefix: "+",
+    bgColor: "bg-primary-200",
+    iconColor: "text-primary",
   },
   {
-    icon: <FaCreditCard size={64} />,
+    icon: <FaBowlFood size={64} />,
     value: "30",
-    heading: "Total Transacciones",
-    suffix: "K",
-    bgColor: "bg-green-200",
-    iconColor: "text-green-500",
+    heading: "Más rápido el servicio",
+    suffix: "%",
+    bgColor: "bg-primary-200",
+    iconColor: "text-primary",
   },
   {
-    icon: <FaUser size={64} />,
-    value: "10",
-    heading: "Clientes satisfechos",
+    icon: <FaMobile size={64} />,
+    value: "100",
+    heading: "Pedidos gestionados",
     suffix: "K",
-    bgColor: "bg-yellow-50",
-    iconColor: "text-yellow-500",
+    prefix: "+",
+    bgColor: "bg-primary-200",
+    iconColor: "text-primary",
   },
 ];
 

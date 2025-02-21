@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Nunito } from "next/font/google";
 import "./globals.css";
 import ScrollRevealInitializer from "./components/ScrollRevealInitializer";
 
@@ -8,15 +8,15 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const nunito = Nunito({
+  variable: "--nunito",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Maxipagos - Simplifica tus pagos con Maxipagos",
+  title: "FooDiv - Simplifica tus pagos con FooDiv",
   description:
-    "Maxipagos es la plataforma de pagos que simplifica tu gestión de cobros y pagos. Automatiza tus procesos y haz crecer tu negocio.",
+    "FooDiv es la plataforma de pagos que simplifica tu gestión de cobros y pagos. Automatiza tus procesos y haz crecer tu negocio.",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${nunito.variable} antialiased`}
       >
         <ScrollRevealInitializer />
         {children}

@@ -27,7 +27,7 @@ export default function Pricing() {
     },
     {
       name: "Pro",
-      subtitle: "Excelente para empresas",
+      subtitle: "Más funciones avanzadas.",
       monthlyPrice: 9990,
       annualPrice: 9990 * 12 * 0.8, // Ejemplo con 20% de descuento anual
       features: [

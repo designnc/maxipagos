@@ -60,7 +60,11 @@ const Contact = () => {
     const resto = suma % 11;
     const dvCalculado = 11 - resto;
     const dvEsperado =
-      dvCalculado === 11 ? "0" : dvCalculado === 10 ? "K" : dvCalculado.toString();
+      dvCalculado === 11
+        ? "0"
+        : dvCalculado === 10
+          ? "K"
+          : dvCalculado.toString();
 
     return dvEsperado === dv;
   };
@@ -82,7 +86,7 @@ const Contact = () => {
     const nombre = formData.get("nombre") as string;
     const apellido = formData.get("apellido") as string;
     const rutValue = formData.get("rut") as string;
-    const empresa = formData.get("empresa") as string;
+    const restaurante = formData.get("restaurante") as string;
     const email = formData.get("email") as string;
     const telefono = formData.get("telefono") as string;
     const address = (formData.get("address") as string) || "Sin dirección";
@@ -102,7 +106,7 @@ const Contact = () => {
       rut: rutValue,
       address,
       email,
-      businessName: empresa,
+      businessName: restaurante,
       phone: telefono,
       mensaje, // Incluimos el mensaje
     };
@@ -131,7 +135,9 @@ const Contact = () => {
         e.currentTarget.reset();
         setRut("");
       } else {
-        setError("Error: ya se había intentado el registro o no se pudo completar.");
+        setError(
+          "Error: ya se había intentado el registro o no se pudo completar."
+        );
       }
     } catch (err) {
       console.error(err);
@@ -199,8 +205,8 @@ const Contact = () => {
             variants={childVariants}
             className="text-xl text-center text-foreground/70 mb-8 transition-all duration-500"
           >
-            ¿Tienes dudas o necesitas ayuda o quieres registrarte? ¡Contáctanos
-            y con gusto te asistiremos!
+            ¿Tienes dudas o quieres integrar FooDiv en tu restaurante?
+            ¡Hablemos! Estamos aquí para ayudarte.
           </motion.p>
         </motion.div>
 
@@ -218,8 +224,8 @@ const Contact = () => {
               Contáctanos
             </motion.h2>
             <motion.p variants={childVariants} className="mb-6 text-base">
-              En Maxipagos estamos listos para ayudarte. Déjanos tu mensaje y
-              nos pondremos en contacto contigo lo antes posible.
+              Déjanos tu nombre, correo electrónico y un mensaje con tu
+              consulta. Nos pondremos en contacto contigo a la brevedad.
             </motion.p>
 
             <motion.form
@@ -253,9 +259,9 @@ const Contact = () => {
                   onChange={handleRutChange}
                 />
                 <InputField
-                  label="Empresa"
-                  name="empresa"
-                  placeholder="Tu empresa"
+                  label="Restaurante"
+                  name="restaurante"
+                  placeholder="Tu restaurante"
                   required
                 />
               </div>
@@ -289,9 +295,7 @@ const Contact = () => {
                 rows={4}
               />
               {error && (
-                <p className="text-white text-center font-bold">
-                  {error}
-                </p>
+                <p className="text-white text-center font-bold">{error}</p>
               )}
               {success && (
                 <p className="text-green-300 text-center font-bold">
@@ -330,9 +334,9 @@ const Contact = () => {
               />
               <div className="absolute z-[3] bottom-0 w-full bg-gradient-to-t from-secondary to-transparent p-6 pt-16 lg:pt-32 text-black text-center">
                 <p className="text-lg font-medium">
-                  En Maxipagos, simplificamos tu gestión de pagos para que te
-                  enfoques en lo más importante:{" "}
-                  <strong>hacer crecer tu negocio</strong>.
+                  <strong>¿Quieres ver cómo funciona FooDiv en acción?</strong>.
+                  Contáctanos y programaremos una demostración gratuita. hacer
+                  crecer tu negocio
                 </p>
               </div>
             </div>
